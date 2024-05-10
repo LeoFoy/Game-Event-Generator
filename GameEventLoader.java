@@ -1,4 +1,3 @@
-package com.example.oop_final_v2;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -19,13 +18,17 @@ public class GameEventLoader {
         try {
             File filename = new File(file);
             Scanner reader = new Scanner(filename);
+            
             while (reader.hasNextLine()) {
                 counter = counter + 1;
                 String data = reader.nextLine();
+                //split each line by a ; and put them into an array
                 String[] sections = data.split(";");
                 String title = sections[0];
                 String desc = sections[1];
                 String timer = sections[2];
+                //if the timer part of the line is 0, make a game event, if its greater than 0, make a timed event
+                //Add the objects to the list of events
                 if (Integer.parseInt(timer) == 0) {
                     GameEvent event = new GameEvent(title, desc);
                     eventList.add(event);
@@ -42,6 +45,8 @@ public class GameEventLoader {
         return randomEvent(eventList, counter);
 
     }
+
+    //takes the list of events and the number of lines and pick a random one
     public GameEvent randomEvent (List<GameEvent> eventList, int numOfEvents){
         Random rand = new Random();
         int randomNum = rand.nextInt(numOfEvents);

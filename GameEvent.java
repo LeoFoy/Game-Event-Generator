@@ -1,5 +1,3 @@
-package com.example.oop_final_v2;
-
 public class GameEvent {
     private String title;
     private String description;

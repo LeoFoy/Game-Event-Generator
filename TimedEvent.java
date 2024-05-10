@@ -1,5 +1,8 @@
-package com.example.oop_final_v2;
 import java.util.Random;
+
+/**
+* Child of GameEvent, overrides the getReward method and adds the timer variable
+**/
 public class TimedEvent extends GameEvent{
     private int timer;
 
